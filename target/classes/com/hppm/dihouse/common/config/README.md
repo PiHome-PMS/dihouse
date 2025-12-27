@@ -1,0 +1,3 @@
+# Folder nay chua config chung cho toan du an
+
+# Swagger,CorsConfig,...
