@@ -1,0 +1,21 @@
+{
+    "name": "@dihouse/frontend",
+    "private": true,
+    "workspaces": [
+        "apps/*",
+        "packages/*"
+    ],
+    "scripts": {
+        "dev:admin": "bun --filter @dihouse/web-admin dev",
+        "dev:bms": "bun --filter @dihouse/web-bms dev",
+        "dev:bas": "bun --filter @dihouse/web-bas dev",
+        "dev:ams": "bun --filter @dihouse/web-ams dev",
+        "format": "prettier --write .",
+        "format:check": "prettier --check .",
+        "typecheck": "bun --filter './apps/*' run typecheck",
+        "lint": "bun --filter './apps/*' run lint"
+    },
+    "devDependencies": {
+        "prettier-plugin-tailwindcss": "^0.7.2"
+    }
+}
