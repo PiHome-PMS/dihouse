@@ -1,0 +1,4 @@
+-- /* Tao db */
+-- Moi lan co su thay doi DB --> tao 1 Version moi.
+-- Khong sua version cu. 
+-- Neu sua version cu, phai xoa db tao lai tu dau
