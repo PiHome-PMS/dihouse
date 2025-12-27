@@ -48,6 +48,6 @@ jobs:
           platforms: linux/amd64
           tags: |
             dorrissdang/dihouse-backend:v${{ github.run_number }}
-            ghcr.io/PiHome-PMS/dihouse-backend:v${{ github.run_number }}
+            ghcr.io/pihome-pms/dihouse-backend:v${{ github.run_number }}
           cache-from: type=gha
           cache-to: type=gha,mode=max
