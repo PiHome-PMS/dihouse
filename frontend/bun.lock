@@ -2,18 +2,8 @@
   "lockfileVersion": 1,
   "workspaces": {
     "": {
-      "name": "@dihouse/frontend",
-      "devDependencies": {
-        "prettier-plugin-tailwindcss": "^0.7.2",
-      },
-    },
-    "apps/web-admin": {
-      "name": "@dihouse/web-admin",
-      "version": "0.1.0",
+      "name": "frontend",
       "dependencies": {
-        "@dihouse/api": "*",
-        "@dihouse/query": "*",
-        "@dihouse/ui": "*",
         "@radix-ui/react-slot": "^1.2.4",
         "class-variance-authority": "^0.7.1",
         "clsx": "^2.1.1",
@@ -30,110 +20,10 @@
         "@types/react-dom": "^19",
         "eslint": "^9",
         "eslint-config-next": "16.1.1",
+        "prettier-plugin-tailwindcss": "^0.7.2",
         "tailwindcss": "^4",
         "tw-animate-css": "^1.4.0",
         "typescript": "^5",
-      },
-    },
-    "apps/web-ams": {
-      "name": "@dihouse/web-ams",
-      "version": "0.1.0",
-      "dependencies": {
-        "@dihouse/api": "*",
-        "@dihouse/query": "*",
-        "@dihouse/ui": "*",
-        "class-variance-authority": "^0.7.1",
-        "clsx": "^2.1.1",
-        "lucide-react": "^0.562.0",
-        "next": "16.1.1",
-        "react": "19.2.3",
-        "react-dom": "19.2.3",
-        "tailwind-merge": "^3.4.0",
-        "tailwindcss-animate": "^1.0.7",
-      },
-      "devDependencies": {
-        "@tailwindcss/postcss": "^4",
-        "@types/node": "^20",
-        "@types/react": "^19",
-        "@types/react-dom": "^19",
-        "eslint": "^9",
-        "eslint-config-next": "16.1.1",
-        "tailwindcss": "^4",
-        "typescript": "^5",
-      },
-    },
-    "apps/web-bas": {
-      "name": "@dihouse/web-bas",
-      "version": "0.1.0",
-      "dependencies": {
-        "@dihouse/api": "*",
-        "@dihouse/query": "*",
-        "@dihouse/ui": "*",
-        "class-variance-authority": "^0.7.1",
-        "clsx": "^2.1.1",
-        "lucide-react": "^0.562.0",
-        "next": "16.1.1",
-        "react": "19.2.3",
-        "react-dom": "19.2.3",
-        "tailwind-merge": "^3.4.0",
-        "tailwindcss-animate": "^1.0.7",
-      },
-      "devDependencies": {
-        "@tailwindcss/postcss": "^4",
-        "@types/node": "^20",
-        "@types/react": "^19",
-        "@types/react-dom": "^19",
-        "eslint": "^9",
-        "eslint-config-next": "16.1.1",
-        "tailwindcss": "^4",
-        "typescript": "^5",
-      },
-    },
-    "apps/web-bms": {
-      "name": "@dihouse/web-bms",
-      "version": "0.1.0",
-      "dependencies": {
-        "@dihouse/api": "*",
-        "@dihouse/query": "*",
-        "@dihouse/ui": "*",
-        "class-variance-authority": "^0.7.1",
-        "clsx": "^2.1.1",
-        "lucide-react": "^0.562.0",
-        "next": "16.1.1",
-        "react": "19.2.3",
-        "react-dom": "19.2.3",
-        "tailwind-merge": "^3.4.0",
-        "tailwindcss-animate": "^1.0.7",
-      },
-      "devDependencies": {
-        "@tailwindcss/postcss": "^4",
-        "@types/node": "^20",
-        "@types/react": "^19",
-        "@types/react-dom": "^19",
-        "eslint": "^9",
-        "eslint-config-next": "16.1.1",
-        "tailwindcss": "^4",
-        "typescript": "^5",
-      },
-    },
-    "packages/api": {
-      "name": "@dihouse/api",
-      "version": "0.0.1",
-    },
-    "packages/query": {
-      "name": "@dihouse/query",
-      "version": "0.0.1",
-    },
-    "packages/ui": {
-      "name": "@dihouse/ui",
-      "version": "0.0.1",
-      "dependencies": {
-        "clsx": "^2",
-        "tailwind-merge": "^3",
-      },
-      "peerDependencies": {
-        "react": "^19",
-        "react-dom": "^19",
       },
     },
   },
@@ -175,20 +65,6 @@
     "@babel/traverse": ["@babel/traverse@7.28.5", "", { "dependencies": { "@babel/code-frame": "^7.27.1", "@babel/generator": "^7.28.5", "@babel/helper-globals": "^7.28.0", "@babel/parser": "^7.28.5", "@babel/template": "^7.27.2", "@babel/types": "^7.28.5", "debug": "^4.3.1" } }, "sha512-TCCj4t55U90khlYkVV/0TfkJkAkUg3jZFA3Neb7unZT8CPok7iiRfaX0F+WnqWqt7OxhOn0uBKXCw4lbL8W0aQ=="],
 
     "@babel/types": ["@babel/types@7.28.5", "", { "dependencies": { "@babel/helper-string-parser": "^7.27.1", "@babel/helper-validator-identifier": "^7.28.5" } }, "sha512-qQ5m48eI/MFLQ5PxQj4PFaprjyCTLI37ElWMmNs0K8Lk3dVeOdNpB3ks8jc7yM5CDmVC73eMVk/trk3fgmrUpA=="],
-
-    "@dihouse/api": ["@dihouse/api@workspace:packages/api"],
-
-    "@dihouse/query": ["@dihouse/query@workspace:packages/query"],
-
-    "@dihouse/ui": ["@dihouse/ui@workspace:packages/ui"],
-
-    "@dihouse/web-admin": ["@dihouse/web-admin@workspace:apps/web-admin"],
-
-    "@dihouse/web-ams": ["@dihouse/web-ams@workspace:apps/web-ams"],
-
-    "@dihouse/web-bas": ["@dihouse/web-bas@workspace:apps/web-bas"],
-
-    "@dihouse/web-bms": ["@dihouse/web-bms@workspace:apps/web-bms"],
 
     "@emnapi/core": ["@emnapi/core@1.7.1", "", { "dependencies": { "@emnapi/wasi-threads": "1.1.0", "tslib": "^2.4.0" } }, "sha512-o1uhUASyo921r2XtHYOHy7gdkGLge8ghBEQHMWmyJFoXlpU58kIrhhN3w26lpQb6dspetweapMn2CSNwQ8I4wg=="],
 
@@ -934,15 +810,13 @@
 
     "tailwindcss": ["tailwindcss@4.1.18", "", {}, "sha512-4+Z+0yiYyEtUVCScyfHCxOYP06L5Ne+JiHhY2IjR2KWMIWhJOYZKLSGZaP5HkZ8+bY0cxfzwDE5uOmzFXyIwxw=="],
 
-    "tailwindcss-animate": ["tailwindcss-animate@1.0.7", "", { "peerDependencies": { "tailwindcss": ">=3.0.0 || insiders" } }, "sha512-bl6mpH3T7I3UFxuvDEXLxy/VuFxBk5bbzplh7tXI68mwMokNYd1t9qPBHlnyTwfa4JGC4zP516I1hYYtQ/vspA=="],
-
     "tapable": ["tapable@2.3.0", "", {}, "sha512-g9ljZiwki/LfxmQADO3dEY1CbpmXT5Hm2fJ+QaGKwSXUylMybePR7/67YW7jOrrvjEgL1Fmz5kzyAjWVWLlucg=="],
 
     "tinyglobby": ["tinyglobby@0.2.15", "", { "dependencies": { "fdir": "^6.5.0", "picomatch": "^4.0.3" } }, "sha512-j2Zq4NyQYG5XMST4cbs02Ak8iJUdxRM0XI5QyxXuZOzKOINmWurp3smXu3y5wDcJrptwpSjgXHzIQxR0omXljQ=="],
 
     "to-regex-range": ["to-regex-range@5.0.1", "", { "dependencies": { "is-number": "^7.0.0" } }, "sha512-65P7iz6X5yEr1cwcgvQxbbIw7Uk3gOy5dIdtZ4rDveLqhrdJP+Li/Hx6tyK0NEb+2GCyneCMJiGqrADCSNk8sQ=="],
 
-    "ts-api-utils": ["ts-api-utils@2.1.0", "", { "peerDependencies": { "typescript": ">=4.8.4" } }, "sha512-CUgTZL1irw8u29bzrOD/nH85jqyc74D6SshFgujOIA7osm2Rz7dYH77agkx7H4FBNxDq7Cjf+IjaX/8zwFW+ZQ=="],
+    "ts-api-utils": ["ts-api-utils@2.2.0", "", { "peerDependencies": { "typescript": ">=4.8.4" } }, "sha512-L6f5oQRAoLU1RwXz0Ab9mxsE7LtxeVB6AIR1lpkZMsOyg/JXeaxBaXa/FVCBZyNr9S9I4wkHrlZTklX+im+WMw=="],
 
     "tsconfig-paths": ["tsconfig-paths@3.15.0", "", { "dependencies": { "@types/json5": "^0.0.29", "json5": "^1.0.2", "minimist": "^1.2.6", "strip-bom": "^3.0.0" } }, "sha512-2Ac2RgzDe/cn48GvOe3M+o82pEFewD3UPbyoUHHdKasHwJKjds4fLXWf/Ux5kATBKN20oaFGu+jbElp1pos0mg=="],
 
