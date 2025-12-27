@@ -79,6 +79,7 @@ public class GlobalExceptionHandler extends ResponseEntityExceptionHandler {
         return new ResponseEntity<>(body, ec.getStatus());
     }
 
+    // Handle lỗi không đủ quyền (Spring Security), trả 403 FORBIDDEN.
     @ExceptionHandler(AccessDeniedException.class)
     public ResponseEntity<ApiResponse<Object>> handleAccessDenied(AccessDeniedException ex, HttpServletRequest request) {
         ErrorCode ec = ErrorCode.FORBIDDEN_ACTION;
@@ -86,6 +87,7 @@ public class GlobalExceptionHandler extends ResponseEntityExceptionHandler {
                 .body(buildError(ec.getCode(), ec.getDefaultMessage(), request.getRequestURI(), null));
     }
 
+    // Handle lỗi ràng buộc DB (unique/FK...), hiện map chung về DUPLICATE_RESOURCE (thường 409).
     @ExceptionHandler(DataIntegrityViolationException.class)
     public ResponseEntity<ApiResponse<Object>> handleDataIntegrity(DataIntegrityViolationException ex, HttpServletRequest request) {
         log.warn("DataIntegrityViolation: {}", ex.getMessage());
@@ -94,6 +96,7 @@ public class GlobalExceptionHandler extends ResponseEntityExceptionHandler {
                 .body(buildError(ec.getCode(), ec.getDefaultMessage(), request.getRequestURI(), null));
     }
 
+    // Handle mọi lỗi không lường trước, log stacktrace và trả 500 UNEXPECTED_ERROR.
     @ExceptionHandler(Exception.class)
     public ResponseEntity<ApiResponse<Object>> handleUnexpected(Exception ex, HttpServletRequest request) {
         log.error("Unexpected error:", ex);
@@ -102,6 +105,7 @@ public class GlobalExceptionHandler extends ResponseEntityExceptionHandler {
                 .body(buildError(ec.getCode(), ec.getDefaultMessage(), request.getRequestURI(), null));
     }
 
+    // Override handler nội bộ của Spring để vẫn trả ApiResponse thống nhất theo status (4xx -> REQUEST_FAILED, 5xx -> UNEXPECTED_ERROR).
     @Override
     protected ResponseEntity<Object> handleExceptionInternal(
             Exception ex,
@@ -119,6 +123,7 @@ public class GlobalExceptionHandler extends ResponseEntityExceptionHandler {
         return new ResponseEntity<>(resp, headers, status);
     }
 
+    // Helper dựng ApiResponse lỗi: set code/message/errors + timestamp/path, result luôn null.
     private ApiResponse<Object> buildError(int code, String message, String path, Map<String, String> errors) {
         return ApiResponse.<Object>builder()
                 .code(code)
@@ -130,6 +135,7 @@ public class GlobalExceptionHandler extends ResponseEntityExceptionHandler {
                 .build();
     }
 
+    // Helper lấy path từ WebRequest (format "uri=/...") cho các override method.
     private String extractPath(WebRequest request) {
         String desc = request.getDescription(false);
         if (desc == null) return null;
