@@ -7,18 +7,23 @@ import org.springframework.http.HttpStatus;
 @Getter
 @RequiredArgsConstructor
 public enum ErrorCode {
-    VALIDATION_ERROR(1000, "Validation failed", HttpStatus.BAD_REQUEST),
-    MALFORMED_JSON(1001, "Malformed JSON request", HttpStatus.BAD_REQUEST),
 
-    UNAUTHENTICATED(1002, "Unauthenticated", HttpStatus.UNAUTHORIZED),
-    FORBIDDEN_ACTION(1003, "You cannot do this action", HttpStatus.FORBIDDEN),
+    SUCCESS(1000, "Success", HttpStatus.OK),
 
-    RESOURCE_NOT_FOUND(1004, "Resource not found", HttpStatus.NOT_FOUND),
-    BUSINESS_ERROR(1005, "Business rule violated", HttpStatus.BAD_REQUEST),
 
-    UNEXPECTED_ERROR(1999, "Unexpected error", HttpStatus.INTERNAL_SERVER_ERROR),
-    REQUEST_FAILED(1998, "Request failed", HttpStatus.BAD_REQUEST);
+    //custom handling error for user behavior for 4xx
+    VALIDATION_ERROR(4000, "Validation failed", HttpStatus.BAD_REQUEST),
+    MALFORMED_JSON(4001, "Malformed JSON request", HttpStatus.BAD_REQUEST),
+    INVALID_INPUT(4002, "Invalid input", HttpStatus.BAD_REQUEST),
 
+    UNAUTHENTICATED(4010, "Unauthenticated", HttpStatus.UNAUTHORIZED),
+    FORBIDDEN_ACTION(4030, "Forbidden", HttpStatus.FORBIDDEN),
+
+    RESOURCE_NOT_FOUND(4040, "Not found", HttpStatus.NOT_FOUND),
+    DUPLICATE_RESOURCE(4090, "Conflict", HttpStatus.CONFLICT),
+
+    REQUEST_FAILED(4999, "Request failed", HttpStatus.BAD_REQUEST),
+    UNEXPECTED_ERROR(5000, "Unexpected error", HttpStatus.INTERNAL_SERVER_ERROR);
     private final int code;
     private final String defaultMessage;
     private final HttpStatus status;
