@@ -25,6 +25,8 @@ jobs:
 
     steps:
       - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
 
       - name: Setup Bun
         uses: oven-sh/setup-bun@v2
@@ -40,12 +42,13 @@ jobs:
       - name: Lint
         run: bun run lint
 
-      - name: SonarCloud Scan
-        uses: SonarSource/sonarqube-scan-action@v2
+      - name: SonarCloud Scan (Frontend)
+        uses: SonarSource/sonarcloud-github-action@v3
         env:
           SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
         with:
+          projectBaseDir: frontend
           args: >
             -Dsonar.projectKey=PiHome-PMS_dihouse_frontend
-            -Dsonar.organization=PiHome-PMS
-            -Dsonar.sources=frontend
+            -Dsonar.organization=pihome-pms
+            -Dsonar.host.url=https://sonarcloud.io
