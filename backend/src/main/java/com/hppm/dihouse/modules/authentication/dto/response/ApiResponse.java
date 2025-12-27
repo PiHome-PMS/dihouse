@@ -1,4 +1,4 @@
-package com.hppm.dihouse.common;
+package com.hppm.dihouse.modules.authentication.dto.response;
 
 import com.fasterxml.jackson.annotation.JsonInclude;
 import java.time.Instant;
