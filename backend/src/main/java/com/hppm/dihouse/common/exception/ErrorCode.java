@@ -7,29 +7,17 @@ import org.springframework.http.HttpStatus;
 @Getter
 @RequiredArgsConstructor
 public enum ErrorCode {
-    UNCATEGORY_EXCEPTION(9999, "Uncategory Exception", HttpStatus.INTERNAL_SERVER_ERROR),
-    UNAUTHENTICATED_EXCEPTION(1001, "Unauthenticated", HttpStatus.BAD_REQUEST),
-    INVALID_EMAIL(1002, "Invalid email", HttpStatus.BAD_REQUEST),
-    INVALID_PASSWORD(1003, "Invalid password", HttpStatus.BAD_REQUEST),
-    DUPLICATE_EMAIL(1004, "This email already exist", HttpStatus.BAD_REQUEST),
-    INVALID_ACCOUNT(1005, "Please login before access this feature", HttpStatus.BAD_REQUEST),
-    MISSING_ORY_COOKIES(1006, "Missing ory cookies", HttpStatus.BAD_REQUEST),
-    INVALID_ORY_COOKIES(1007, "Invalid ory cookies", HttpStatus.BAD_REQUEST),
-    ROLE_NOT_FOUND(1008, "Role not found", HttpStatus.BAD_REQUEST),
-    EMAIL_ALREADY_EXIST(1009, "Email already exist", HttpStatus.BAD_REQUEST),
-    MISSING_REFRESH_TOKEN_COOKIE(1010, "Missing refresh token in cookies", HttpStatus.BAD_REQUEST),
-    MISSING_AUTH_HEADER(1011, "Missing access token", HttpStatus.BAD_REQUEST),
-    INVALID_PROJECT_NAME(1012, "Invalid project name", HttpStatus.BAD_REQUEST),
-    PROJECT_NOT_FOUND(1013, "Project not found", HttpStatus.BAD_REQUEST),
-    FORBIDDEN_ACTION(1014, "You cannot do this action",  HttpStatus.FORBIDDEN),
-    PROJECT_ALREADY_ARCHIVED(1015, "Project is already archived", HttpStatus.BAD_REQUEST),
-    MEMBER_ALREADY_EXISTED(1016, "Member is already exist", HttpStatus.BAD_REQUEST),
-    INVITE_ALREADY_SENT(1017, "Invite already sent", HttpStatus.BAD_REQUEST),
-    INVITE_NOT_FOUND(1018, "Invite not found", HttpStatus.BAD_REQUEST),
-    INVITATION_IS_EXPIRED(1019, "Invite is expired", HttpStatus.BAD_REQUEST),
-    INVALID_INVITATION(1020, "Invitation is not pending", HttpStatus.BAD_REQUEST),
-    INVALID_INVITE_EMAIL(1021, "Invalid invite email", HttpStatus.BAD_REQUEST),
-    ;
+    VALIDATION_ERROR(1000, "Validation failed", HttpStatus.BAD_REQUEST),
+    MALFORMED_JSON(1001, "Malformed JSON request", HttpStatus.BAD_REQUEST),
+
+    UNAUTHENTICATED(1002, "Unauthenticated", HttpStatus.UNAUTHORIZED),
+    FORBIDDEN_ACTION(1003, "You cannot do this action", HttpStatus.FORBIDDEN),
+
+    RESOURCE_NOT_FOUND(1004, "Resource not found", HttpStatus.NOT_FOUND),
+    BUSINESS_ERROR(1005, "Business rule violated", HttpStatus.BAD_REQUEST),
+
+    UNEXPECTED_ERROR(1999, "Unexpected error", HttpStatus.INTERNAL_SERVER_ERROR),
+    REQUEST_FAILED(1998, "Request failed", HttpStatus.BAD_REQUEST);
 
     private final int code;
     private final String defaultMessage;
